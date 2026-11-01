@@ -1,0 +1,19 @@
+{
+  "e2e/run_load_sweep.py": "fig6_e2e",
+  "e2e/run_timeline.py": "fig8_timeline",
+  "ablation/run_saturation.py": "fig11_saturation",
+  "ablation/run_allocation.py": "fig12_allocation",
+  "sensitivity/run_slo.py": "fig9_slo_scale",
+  "sensitivity/run_cluster.py": "fig10_cluster_size",
+  "sensitivity/run_history.py": "fig14_history_window",
+  "sensitivity/run_quantile.py": "fig14_quantile",
+  "sensitivity/run_update_interval.py": "fig14_update_interval",
+  "overhead/run_p.py": "fig13_p_overhead",
+  "overhead/run_d.py": "fig13_d_overhead",
+  "overhead/run_allocator.py": "fig13_allocator_overhead",
+  "workloads/run_cdf.py": "fig5_workload_cdf",
+  "workloads/run_arrivals.py": "fig7_arrivals",
+  "motivation/run_fragmentation.py": "fig1_fragmentation",
+  "motivation/run_colocation.py": "fig2_colocation",
+  "motivation/run_budget_surface.py": "fig3_budget_surface"
+}

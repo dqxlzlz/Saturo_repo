@@ -1,0 +1,8 @@
+# CPU-only workload construction environment used for the recorded build.
+transformers==4.57.3
+tokenizers==0.22.1
+huggingface-hub==0.36.0
+numpy==2.2.6
+scipy==1.16.3
+pyarrow==22.0.0
+sentencepiece==0.2.1

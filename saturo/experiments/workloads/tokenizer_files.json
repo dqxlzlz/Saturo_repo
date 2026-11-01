@@ -1,0 +1,24 @@
+{
+  "llama3.3-70b": {
+    "repo_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "revision": "6f6073b423013f6a7d4d9f39144961bfbfbc386b",
+    "files": {
+      "config.json": {"bytes": 879, "git_blob_sha1": "adf1f490f126443b5f6297e7182d8aa7b2975858"},
+      "special_tokens_map.json": {"bytes": 68, "git_blob_sha1": "f55d8b616781a674e4735cc1411170fee820dc2d"},
+      "tokenizer.json": {"bytes": 17209920, "sha256": "6b9e4e7fb171f92fd137b777cc2714bf87d11576700a1dcd7a399e7bbe39537b"},
+      "tokenizer_config.json": {"bytes": 55425, "git_blob_sha1": "41cd8d1ca52c3fc5feaf8445ca922b27f8e8ea8b"}
+    }
+  },
+  "mistral-large-123b": {
+    "repo_id": "mistralai/Mistral-Large-Instruct-2411",
+    "revision": "ba78820945ae22361b0274cf0ae6d696c967c1a4",
+    "files": {
+      "config.json": {"bytes": 588, "git_blob_sha1": "204f93d3aa31fb27c9245600f706b33a9a021221"},
+      "special_tokens_map.json": {"bytes": 414, "git_blob_sha1": "451134b2ddc2e78555d1e857518c54b4bdc2e87d"},
+      "tokenizer.json": {"bytes": 3672086, "git_blob_sha1": "8d0372a3e9443dc78a8fd76e479e6335938ac17c"},
+      "tokenizer.model": {"bytes": 587562, "sha256": "1b968b8dc352f42192367337c78ccc61e1eaddc6d641a579372d4f20694beb7a"},
+      "tokenizer.model.v7": {"bytes": 587562, "git_blob_sha1": "d23856f8c98075bb81826fba7e64415eedf520fd"},
+      "tokenizer_config.json": {"bytes": 137227, "git_blob_sha1": "7e22e288303d46a74ff764c75cdfb4e827763fa6"}
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "seed": 20261101,
+  "rt_requests": 8000,
+  "rt_start_row": 0,
+  "candidate_limit": 100000,
+  "be_requests": 600,
+  "sources": {
+    "conv_trace": "AzureLLMInferenceTrace_conv_2024.csv",
+    "code_trace": "AzureLLMInferenceTrace_code_2024.csv",
+    "sharegpt": "sharegpt/ShareGPT_V3_unfiltered_cleaned_split.json",
+    "lmsys": "lmsys_chat_1m/data",
+    "govreport": "longbench_v1/data/gov_report.jsonl",
+    "multinews": "longbench_v1/data/multi_news.jsonl",
+    "qmsum": "longbench_v1/data/qmsum.jsonl"
+  },
+  "models": {
+    "llama3.3-70b": {
+      "repo_id": "meta-llama/Llama-3.3-70B-Instruct",
+      "revision": "6f6073b423013f6a7d4d9f39144961bfbfbc386b"
+    },
+    "mistral-large-123b": {
+      "repo_id": "mistralai/Mistral-Large-Instruct-2411",
+      "revision": "ba78820945ae22361b0274cf0ae6d696c967c1a4"
+    }
+  }
+}

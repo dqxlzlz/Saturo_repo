@@ -1,0 +1,98 @@
+{
+  "description": "Paper experiment setup for Llama-3.3-70B-Instruct and Mistral-Large-Instruct-2411 (123B); fill model, data, predictor and measured-profile paths.",
+  "duration_s": 400,
+  "measurement_repeats": 30,
+  "base": {
+    "output_dir": "saturo/results/paper_experiments",
+    "num_req": 8000,
+    "target_rps": 20,
+    "max_wall_s": 1200,
+    "resource_config_filter": "tp1_pp1,tp2_pp1,tp4_pp1",
+    "resource_allocation_policy": "saturation_aware",
+    "total_gpus": 32,
+    "ray_address": "auto",
+    "gpu_ids": "",
+    "load_format": "auto",
+    "dtype": "bfloat16",
+    "gpu_memory_utilization": 0.9,
+    "swap_space": 4,
+    "max_model_len": 65536,
+    "kv_handoff": "real",
+    "kv_transfer_dir": "/shared/saturo/kv",
+    "rt_ttft_slo_ms": 1000,
+    "rt_tbt_slo_ms": 150,
+    "enable_prefill_saturation": true,
+    "enable_decode_saturation": true,
+    "adaptive_role_switching": true,
+    "resource_decode_strategies": "progressive",
+    "resource_decode_model_len_quantile": 0.95,
+    "worker_start_timeout_s": 600,
+    "worker_warmup": true,
+    "require_complete": true,
+    "env": {
+      "VLLM_USE_V1": "0",
+      "SATURO_HISTORY_SOURCE": "redis",
+      "SATURO_REDIS_URL": "redis://127.0.0.1:6379/0",
+      "SATURO_HISTORY_KEY": "saturo:paper:history:{model}:{workload}",
+      "SATURO_TRACE_KEY": "saturo:paper:trace:{case}",
+      "SATURO_RUNTIME_HISTORY_WINDOW_S": "600",
+      "SATURO_HISTORY_WINDOW_S": "1800",
+      "SATURO_HISTORY_REFRESH_S": "40",
+      "VLLM_DECODE_SATURATION_MODEL_LEN_ETA": "0.95",
+      "RT_TRIM_TOP_FRAC": "0",
+      "RT_LEN_SCALE": "1",
+      "VLLM_ATTENTION_BACKEND": "FLASH_ATTN"
+    },
+    "saturation_update_interval_s": 40,
+    "saturation_update_timeout_s": 30,
+    "saturation_history_window_s": 600,
+    "decode_target_async": true,
+    "periodic_reallocation": true,
+    "resource_reallocation_interval_s": 1800,
+    "resource_reallocation_build_timeout_s": 300,
+    "resource_reallocation_drain_timeout_s": 180,
+    "resource_reallocation_history_window_s": 1800
+  },
+  "models": {
+    "llama": {
+      "model": "/path/to/Llama-3.3-70B-Instruct",
+      "model_len_predictor": "/path/to/llama/qrf.joblib",
+      "runtime_profile": "/path/to/llama/measured_runtime_profiles",
+      "resource_profile": "/path/to/llama/allocation_profiles.json",
+      "pool_runtime_profile": "/path/to/llama/measured_tp2_pp1_runtime.json"
+    },
+    "mistral": {
+      "model": "/path/to/Mistral-Large-Instruct-2411",
+      "model_len_predictor": "/path/to/mistral/qrf.joblib",
+      "runtime_profile": "/path/to/mistral/measured_runtime_profiles",
+      "resource_profile": "/path/to/mistral/allocation_profiles.json",
+      "pool_runtime_profile": "/path/to/mistral/measured_tp2_pp1_runtime.json"
+    }
+  },
+  "workloads": {
+    "conv": {
+      "model_len_predictor": "/path/to/{model}/predictors/conv_tfidf_qrf.joblib",
+      "rt_workload_csv": "/path/to/{model}/conv_sharegpt.csv",
+      "be_workload_csv": "/path/to/{model}/be_mix.csv",
+      "history_csv": "/path/to/{model}/history_conv.csv"
+    },
+    "code": {
+      "model_len_predictor": "/path/to/{model}/predictors/code_tfidf_qrf.joblib",
+      "rt_workload_csv": "/path/to/{model}/code_lmsys.csv",
+      "be_workload_csv": "/path/to/{model}/be_mix.csv",
+      "history_csv": "/path/to/{model}/history_code.csv"
+    }
+  },
+  "pool": {
+    "tensor_parallel_size": 2,
+    "pipeline_parallel_size": 1,
+    "be_inflight": 128
+  },
+  "reuse_allocation_profiles": false,
+  "backend_commands": {},
+  "review_notes": [
+    "Use tokenizer-specific workloads and predictors for each model.",
+    "Measured timing and allocation profiles must match the GPU and TP/PP configuration.",
+    "Matrix launchers default to planning; execution requires configured inputs and services."
+  ]
+}

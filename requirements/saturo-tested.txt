@@ -1,0 +1,10 @@
+# Key dependencies from the validated Python 3.12 / RTX 4090 environment.
+# Use with pip -c; this is a constraints file, not a complete dependency lock.
+torch==2.7.0
+ray==2.52.1
+transformers==4.57.3
+tokenizers==0.22.1
+numpy==2.2.6
+scipy==1.16.3
+scikit-learn==1.8.0
+joblib==1.5.3

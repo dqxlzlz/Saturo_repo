@@ -1,0 +1,2 @@
+# Optional runtime RT trace collection and history export.
+redis>=5.2.0,<6
